@@ -1,0 +1,115 @@
+import Link from "next/link";
+
+const QUICK_LINKS = [
+  { href: "/prayer-times", label: "Prayer Times" },
+  { href: "/about", label: "About" },
+  { href: "/events", label: "Events" },
+  { href: "/programs", label: "Programs" },
+  { href: "/contact", label: "Contact" },
+  { href: "/donate", label: "Donate" },
+] as const;
+
+export default function Footer() {
+  return (
+    <footer className="bg-emerald-deep text-cream-light/90">
+      {/* Bismillah header */}
+      <div className="border-b border-gold/10 py-4 text-center">
+        <p className="font-arabic text-gold/90 text-xl tracking-wider">
+          بسم الله الرحمن الرحيم
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Column 1: Masjid info */}
+          <div>
+            <h3 className="font-serif text-xl font-bold text-cream-light mb-1">
+              Islamic Center of Lynchburg
+            </h3>
+            <p className="font-arabic text-gold-light text-sm mb-4">
+              Masjid Aisha
+            </p>
+            <address className="not-italic text-sm leading-relaxed text-cream-light/70">
+              <p>2308 12th St</p>
+              <p className="mb-3">Lynchburg, VA 24501</p>
+              <p>
+                <span className="text-gold-light/80 font-medium">Call/Text:</span>{" "}
+                <a href="tel:3137698647" className="hover:text-gold transition-colors duration-200 inline-block py-1 min-h-[44px] leading-[44px]">
+                  313-769-8647
+                </a>
+              </p>
+              <p>
+                <a href="tel:4342485756" className="hover:text-gold transition-colors duration-200 inline-block py-1 min-h-[44px] leading-[44px]">
+                  434-248-5756
+                </a>
+              </p>
+              <p>
+                <a href="tel:4346609438" className="hover:text-gold transition-colors duration-200 inline-block py-1 min-h-[44px] leading-[44px]">
+                  434-660-9438
+                </a>
+              </p>
+              <p className="mt-2">
+                {/* [EMAIL_TBD] — replace with real email when available */}
+                <span className="text-cream-light/70">[EMAIL_TBD]</span>
+              </p>
+            </address>
+          </div>
+
+          {/* Column 2: Quick links */}
+          <div>
+            <h3 className="font-serif text-lg font-semibold text-cream-light mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="gold-hover relative text-sm text-cream-light/70 hover:text-gold transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Connect */}
+          <div>
+            <h3 className="font-serif text-lg font-semibold text-cream-light mb-4">
+              Connect With Us
+            </h3>
+            <div className="flex gap-3">
+              {/* Facebook link slot */}
+              <a
+                href="#"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gold/20 text-cream-light hover:text-gold transition-all duration-200"
+                aria-label="Facebook"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                </svg>
+              </a>
+              {/* Additional social link slots can be added here */}
+            </div>
+            <p className="mt-6 text-sm text-cream-light/70 leading-relaxed">
+              Visit us for daily prayers and community events. Everyone is welcome.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright bar */}
+      <div className="border-t border-gold/10 py-4">
+        <p className="text-center text-xs text-cream-light/60">
+          © {new Date().getFullYear()} Islamic Center of Lynchburg Virginia (Masjid Aisha). All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+}

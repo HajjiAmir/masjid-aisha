@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent artifacts
+scratch/
+.agents/
+.gemini/
+
+# brand kit source (assets already copied to app/ and public/)
+masjid-ayesha-brand-kit/
+masjid-ayesha-brand-kit.zip

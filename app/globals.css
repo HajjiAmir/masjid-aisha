@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================================
+   DESIGN SYSTEM — Islamic Center of Lynchburg (Masjid Aisha)
+   Palette drawn from the actual prayer hall:
+   deep emerald green, warm gold, soft cream, near-black text.
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- Colors --- */
+  --color-emerald-deep: #0E3B2E;
+  --color-emerald-rich: #145A3E;
+  --color-emerald-mid: #1A7A54;
+  --color-emerald-light: #2A9D6E;
+  --color-gold: #C9A227;
+  --color-gold-light: #D4B94A;
+  --color-gold-glow: #E8D48B;
+  --color-cream: #F5F0E8;
+  --color-cream-light: #FAF7F2;
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-light: #2D2D2D;
+  --color-charcoal-muted: #6B6B6B;
+
+  /* --- Fonts (CSS variable refs set by next/font/google in layout.tsx) --- */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+  --font-arabic: var(--font-amiri);
+
+  /* --- Custom animations --- */
+  --animate-fade-rise: fade-rise 0.6s ease-out both;
+  --animate-fade-rise-delay-1: fade-rise 0.6s ease-out 0.1s both;
+  --animate-fade-rise-delay-2: fade-rise 0.6s ease-out 0.2s both;
+  --animate-fade-rise-delay-3: fade-rise 0.6s ease-out 0.3s both;
+  --animate-shimmer: shimmer 8s ease-in-out infinite;
+  --animate-geometric-drift: geometric-drift 30s linear infinite;
+  --animate-geometric-drift-reverse: geometric-drift 35s linear infinite reverse;
+  --animate-pulse-gold: pulse-gold 2s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* --- Keyframes --- */
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes geometric-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50%, -50%); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(201, 162, 39, 0.3);
+  }
+}
+
+@keyframes countdown-tick {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* --- Base styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream-light);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Utility: gold glow hover for links/buttons --- */
+.gold-hover {
+  position: relative;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.gold-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: width 0.2s ease;
+}
+
+@media (hover: hover) {
+  .gold-hover:hover {
+    color: var(--color-gold);
+    text-shadow: 0 0 12px rgba(201, 162, 39, 0.25);
+  }
+
+  .gold-hover:hover::after {
+    width: 100%;
+  }
+}
+
+/* --- Utility: glassmorphism card --- */
+.glass-card {
+  background: var(--color-emerald-deep);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+/* --- Utility: glassmorphism header --- */
+.glass-header {
+  background: var(--color-emerald-deep);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+}
+
+/* --- Scroll reveal: hidden state (applied by JS) --- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger support via data attributes */
+.scroll-reveal[data-delay="1"] { transition-delay: 0.1s; }
+.scroll-reveal[data-delay="2"] { transition-delay: 0.2s; }
+.scroll-reveal[data-delay="3"] { transition-delay: 0.3s; }
+.scroll-reveal[data-delay="4"] { transition-delay: 0.4s; }
+
+/* --- Next prayer highlight row --- */
+.prayer-row-next {
+  background: rgba(201, 162, 39, 0.1);
+  border-left: 3px solid var(--color-gold);
+}
+
+.geometric-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* --- Event card hover: gold glow + lift --- */
+.event-card {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+@media (hover: hover) {
+  .event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.15), 0 0 0 1px rgba(201, 162, 39, 0.25);
+    border-color: rgba(201, 162, 39, 0.4);
+  }
+}
+
+/* --- Utility: scroll hint --- */
+.scroll-hint {
+  position: relative;
+}
+.scroll-hint::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--color-emerald-deep));
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 0 1rem 1rem 0;
+}
+
+/* --- Touch active states --- */
+@media (hover: none) {
+  .gold-hover:active {
+    color: var(--color-gold);
+    opacity: 0.8;
+  }
+  .event-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* --- prefers-reduced-motion: disable ALL custom animations --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
