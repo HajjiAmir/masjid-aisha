@@ -29,7 +29,9 @@ export default function HomePage() {
       <ScrollReveal>
         <HadithOfTheDay />
       </ScrollReveal>
-      <IslamicCalendarSection />
+      <div className="hidden md:block">
+        <IslamicCalendarSection />
+      </div>
       <ProgramsTeaser />
       <EventsTeaser />
     </main>

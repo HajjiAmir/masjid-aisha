@@ -12,6 +12,11 @@ const MonthlyPrayerTable = dynamic(
   { ssr: true }
 );
 
+const IslamicCalendarBlock = dynamic(
+  () => import("@/components/prayer-times/IslamicCalendarBlock"),
+  { ssr: true }
+);
+
 export const metadata = {
   title: "Prayer Times | Islamic Center of Lynchburg",
   description:
@@ -53,16 +58,21 @@ export default function PrayerTimesPage() {
         </ScrollReveal>
       </section>
 
+      {/* Islamic Calendar — mobile only */}
+      <section className="md:hidden mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-16">
+        <IslamicCalendarBlock />
+      </section>
+
       {/* Monthly table */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-24">
-        <ScrollReveal delay={1}>
+        <ScrollReveal delay={2}>
           <MonthlyPrayerTable />
         </ScrollReveal>
       </section>
 
       {/* Info note */}
       <section className="mx-auto max-w-3xl px-6 pb-16 text-center">
-        <ScrollReveal delay={2}>
+        <ScrollReveal delay={3}>
           <p className="text-charcoal-muted text-sm leading-relaxed">
             Times calculated for Lynchburg, VA (37.41°N, 79.14°W) using the
             ISNA method (Fajr 15°, Isha 15°) with Shafi madhab for Asr.

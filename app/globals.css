@@ -115,6 +115,7 @@ body {
   }
 }
 
+
 /* --- Utility: glassmorphism card --- */
 .glass-card {
   background: var(--color-emerald-deep);

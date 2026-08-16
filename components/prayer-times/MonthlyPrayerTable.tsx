@@ -11,10 +11,18 @@ import { getMonthlyPrayerTimes, getEasternDateParts } from "@/lib/prayerTimes";
  */
 export default function MonthlyPrayerTable() {
   const [monthData, setMonthData] = useState<ReturnType<typeof getMonthlyPrayerTimes> | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const { year, month } = getEasternDateParts();
     setMonthData(getMonthlyPrayerTimes(year, month));
+
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
   }, []);
 
   const columns = [
@@ -54,7 +62,7 @@ export default function MonthlyPrayerTable() {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.03]">
-              {Array.from({ length: 6 }).map((_, i) => (
+              {Array.from({ length: 7 }).map((_, i) => (
                 <tr key={i} className="hover:bg-white/[0.03]">
                   <td className="px-3 sm:px-4 py-2.5">
                     <div className="flex items-center gap-2">
@@ -73,6 +81,10 @@ export default function MonthlyPrayerTable() {
               ))}
             </tbody>
           </table>
+        </div>
+        {/* Skeleton toggle button to match hydrated dimensions */}
+        <div className="md:hidden w-full py-3 border-t border-gold/10 flex items-center justify-center">
+          <div className="h-4 w-28 bg-white/10 rounded animate-pulse" />
         </div>
       </div>
     );
@@ -111,7 +123,20 @@ export default function MonthlyPrayerTable() {
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.03]">
-            {monthData.days.map((entry) => (
+            {(() => {
+              let visibleDays = monthData.days;
+              if (!expanded && isMobile) {
+                const todayIdx = monthData.days.findIndex(d => d.isToday);
+                if (todayIdx !== -1) {
+                  const startIdx = Math.max(0, todayIdx - 3);
+                  const endIdx = Math.min(monthData.days.length, todayIdx + 4);
+                  visibleDays = monthData.days.slice(startIdx, endIdx);
+                } else {
+                  visibleDays = monthData.days.slice(0, 7);
+                }
+              }
+              
+              return visibleDays.map((entry) => (
               <tr
                 key={entry.day}
                 className={`transition-colors duration-150 ${
@@ -163,10 +188,35 @@ export default function MonthlyPrayerTable() {
                   </td>
                 ))}
               </tr>
-            ))}
+              ));
+            })()}
           </tbody>
         </table>
       </div>
+
+      {/* Expand/Collapse Toggle */}
+      {isMobile && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full py-3 text-sm font-medium text-gold hover:text-gold-light transition-colors border-t border-gold/10 flex items-center justify-center gap-2"
+        >
+          {expanded ? (
+            <>
+              Show current week
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+              </svg>
+            </>
+          ) : (
+            <>
+              View full month
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </>
+          )}
+        </button>
+      )}
     </div>
   );
 }

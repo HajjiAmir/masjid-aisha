@@ -61,8 +61,16 @@ export default function PrayerTimesCard() {
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-cream-light">
                   Today&apos;s Prayer Times
                 </h2>
-                <div className="h-5 w-32 bg-white/10 rounded animate-pulse mt-1.5" />
-                <div className="h-4 w-24 bg-white/10 rounded animate-pulse mt-1" />
+                {/* Skeleton: mobile layout */}
+                <div className="md:hidden">
+                  <div className="h-5 w-32 bg-gold/20 rounded animate-pulse mt-1.5" />
+                  <div className="h-4 w-24 bg-white/10 rounded animate-pulse mt-1" />
+                </div>
+                {/* Skeleton: desktop layout (pre-revision order) */}
+                <div className="hidden md:block">
+                  <div className="h-5 w-32 bg-white/10 rounded animate-pulse mt-1.5" />
+                  <div className="h-4 w-24 bg-white/10 rounded animate-pulse mt-1" />
+                </div>
               </div>
               <div className="h-10 w-48 bg-white/10 rounded-lg animate-pulse" />
             </div>
@@ -107,8 +115,19 @@ export default function PrayerTimesCard() {
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-cream-light">
                 Today&apos;s Prayer Times
               </h2>
-              <p className="text-cream-light/80 text-sm mt-0.5">{schedule.date}</p>
-              <p className="text-gold/70 text-xs mt-0.5">{hijri.formatted}</p>
+              {/* Mobile: elevated Hijri (above Gregorian, gold-light, crescent icon) */}
+              <div className="md:hidden">
+                <p className="text-gold-light text-sm font-medium mt-1 flex items-center gap-1.5">
+                  <svg className="w-3.5 h-3.5 text-gold/70" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.472.167A9.72 9.72 0 0117.25 12a9.72 9.72 0 01-4.778 9.583.75.75 0 01-.944-1.024A8.22 8.22 0 0014.25 12a8.22 8.22 0 00-2.722-8.559A.75.75 0 0112 2.25z" /></svg>
+                  {hijri.formatted}
+                </p>
+                <p className="text-cream-light/60 text-xs mt-0.5">{schedule.date}</p>
+              </div>
+              {/* Desktop: pre-revision order (Gregorian first, Hijri below in text-xs) */}
+              <div className="hidden md:block">
+                <p className="text-cream-light/80 text-sm mt-0.5">{schedule.date}</p>
+                <p className="text-gold/70 text-xs mt-0.5">{hijri.formatted}</p>
+              </div>
             </div>
             {/* Live countdown badge */}
             {countdown && (

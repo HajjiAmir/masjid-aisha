@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 
 const NAV_LINKS = [
@@ -14,8 +15,12 @@ const NAV_LINKS = [
 ] as const;
 
 export default function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -36,6 +41,11 @@ export default function Header() {
   }, [isMobileOpen]);
 
   const closeMobile = useCallback(() => setIsMobileOpen(false), []);
+
+  // Close drawer on route change
+  useEffect(() => {
+    closeMobile();
+  }, [pathname, closeMobile]);
 
   useEffect(() => {
     if (!isMobileOpen) return;
@@ -130,18 +140,34 @@ export default function Header() {
       >
         <div className="flex flex-col h-full pt-20 px-6">
           <nav>
-            <ul className="flex flex-col gap-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="gold-hover relative block px-4 py-3 text-lg font-medium text-cream-light/90 hover:text-gold transition-colors duration-200 rounded-lg hover:bg-white/5"
-                    onClick={closeMobile}
+            <ul className="flex flex-col gap-1">
+              {NAV_LINKS.map((link, i) => {
+                const active = isActive(link.href);
+                return (
+                  <li
+                    key={link.href}
+                    className="transition-all duration-150"
+                    style={{
+                      opacity: isMobileOpen ? 1 : 0,
+                      transform: isMobileOpen ? 'translateX(0)' : 'translateX(16px)',
+                      transitionDelay: isMobileOpen ? `${i * 20}ms` : '0ms',
+                    }}
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={`relative block px-4 py-3 text-lg font-medium transition-colors duration-200 rounded-lg min-h-[44px] ${
+                        active
+                          ? "text-gold bg-gold/10 border-l-3 border-gold"
+                          : "text-cream-light/90 hover:text-gold hover:bg-white/5"
+                      }`}
+                      onClick={closeMobile}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
