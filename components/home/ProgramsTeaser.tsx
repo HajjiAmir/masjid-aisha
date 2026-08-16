@@ -39,8 +39,10 @@ export default function ProgramsTeaser() {
   const featured = PROGRAMS.filter((p) => !p.linkTo).slice(0, 3);
 
   return (
-    <section className="py-16 sm:py-24 bg-emerald-deep relative overflow-hidden">
-      <GeometricPattern />
+    <section className="py-10 sm:py-24 bg-emerald-deep relative overflow-hidden">
+      <div className="hidden md:block">
+        <GeometricPattern />
+      </div>
       <div
         className="absolute inset-0 bg-gradient-to-b from-emerald-deep/95 to-emerald-deep/90"
         aria-hidden="true"
@@ -48,10 +50,10 @@ export default function ProgramsTeaser() {
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <ScrollReveal>
           <div className="text-center mb-10">
-            <p className="font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
+            <p className="hidden md:block font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
               خدماتنا
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cream-light tracking-tight mb-3">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-cream-light tracking-tight mb-3">
               Our Programs
             </h2>
             <p className="text-cream-light/60 text-sm max-w-md mx-auto">

@@ -7,7 +7,7 @@ import GeometricPattern from "@/components/GeometricPattern";
  */
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden bg-emerald-deep">
+    <section className="relative min-h-[60dvh] md:min-h-[85dvh] flex items-center justify-center overflow-hidden bg-emerald-deep">
       {/* Animated geometric pattern background */}
       <GeometricPattern />
 
@@ -20,18 +20,18 @@ export default function HeroSection() {
       {/* Hero content */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         {/* Decorative bismillah */}
-        <p className="font-arabic text-gold/60 text-lg sm:text-xl mb-6 tracking-widest">
+        <p className="font-arabic text-gold/60 text-base sm:text-xl mb-6 tracking-widest">
           بسم الله الرحمن الرحيم
         </p>
 
         {/* Main heading */}
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream-light tracking-tight leading-tight mb-3">
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream-light tracking-tight leading-tight mb-3">
           Islamic Center
           <span className="block text-gold mt-1">of Lynchburg</span>
         </h1>
 
         {/* Secondary name */}
-        <p className="font-arabic text-gold-light/80 text-xl sm:text-2xl mb-2 tracking-wide">
+        <p className="font-arabic text-gold-light/80 text-lg sm:text-2xl mb-2 tracking-wide">
           Masjid Aisha
         </p>
 

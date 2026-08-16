@@ -22,17 +22,17 @@ export default function PrayerTimesPage() {
   return (
     <main>
       {/* Hero section — matching homepage design language */}
-      <section className="relative py-24 sm:py-32 bg-emerald-deep overflow-hidden">
+      <section className="relative py-16 sm:py-32 bg-emerald-deep overflow-hidden">
         <GeometricPattern />
         <div
           className="absolute inset-0 bg-gradient-to-b from-emerald-deep/90 via-emerald-deep/70 to-emerald-deep/95"
           aria-hidden="true"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="font-arabic text-gold/60 text-lg mb-4 tracking-widest">
+          <p className="hidden md:block font-arabic text-gold/60 text-lg mb-4 tracking-widest">
             أوقات الصلاة
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-cream-light tracking-tight leading-tight mb-4">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-cream-light tracking-tight leading-tight mb-4">
             Prayer Times
           </h1>
           <p className="text-cream-light/70 text-base sm:text-lg max-w-xl mx-auto">

@@ -32,17 +32,17 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════
           1. HERO HEADER
           ════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-32 bg-emerald-deep overflow-hidden">
+      <section className="relative py-16 sm:py-32 bg-emerald-deep overflow-hidden">
         <GeometricPattern />
         <div
           className="absolute inset-0 bg-gradient-to-b from-emerald-deep/90 via-emerald-deep/70 to-emerald-deep/95"
           aria-hidden="true"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="font-arabic text-gold/60 text-lg mb-4 tracking-widest">
+          <p className="hidden md:block font-arabic text-gold/60 text-lg mb-4 tracking-widest">
             بسم الله الرحمن الرحيم
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-cream-light tracking-tight leading-tight mb-4">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-cream-light tracking-tight leading-tight mb-4">
             About Us
           </h1>
           <p className="text-cream-light/70 text-base sm:text-lg max-w-xl mx-auto">
@@ -60,7 +60,7 @@ export default function AboutPage() {
           ════════════════════════════════════════════════════ */}
       <section className="relative bg-emerald-deep overflow-hidden">
         {/* Full-width photo with overlay */}
-        <div className="relative h-[320px] sm:h-[420px] md:h-[480px]">
+        <div className="relative h-[220px] sm:h-[320px] md:h-[480px]">
           <Image
             src="/images/prayer-hall-current.jpg"
             alt="Inside the prayer hall at the Islamic Center of Lynchburg"
@@ -74,7 +74,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 flex items-end">
             <div className="w-full pb-10 sm:pb-14 px-6">
               <div className="mx-auto max-w-3xl text-center">
-                <p className="font-arabic text-gold/70 text-sm tracking-widest uppercase mb-3">
+                <p className="hidden md:block font-arabic text-gold/70 text-sm tracking-widest uppercase mb-3">
                   أهلاً وسهلاً
                 </p>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-cream-light tracking-tight mb-4 drop-shadow-lg">
@@ -97,7 +97,7 @@ export default function AboutPage() {
       </section>
 
       {/* Extended welcome copy — cream band */}
-      <section className="py-14 sm:py-20 bg-cream-light">
+      <section className="py-10 sm:py-20 bg-cream-light">
         <div className="mx-auto max-w-2xl px-6">
           <ScrollReveal>
             <div className="text-center space-y-4 text-charcoal-muted leading-relaxed text-base sm:text-lg">
@@ -128,7 +128,7 @@ export default function AboutPage() {
       </section>
 
       {/* Gold decorative rule */}
-      <div className="flex justify-center bg-cream-light" aria-hidden="true">
+      <div className="hidden md:flex justify-center bg-cream-light" aria-hidden="true">
         <div className="w-24 h-px bg-gold/40" />
       </div>
 
@@ -136,7 +136,9 @@ export default function AboutPage() {
           3. OUR STORY — emerald band with placeholder
           ════════════════════════════════════════════════════ */}
       <section className="py-16 sm:py-24 bg-emerald-deep relative overflow-hidden">
-        <GeometricPattern />
+        <div className="hidden md:block">
+          <GeometricPattern />
+        </div>
         <div
           className="absolute inset-0 bg-gradient-to-b from-emerald-deep/95 to-emerald-deep/90"
           aria-hidden="true"
@@ -144,7 +146,7 @@ export default function AboutPage() {
         <div className="relative z-10 mx-auto max-w-4xl px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <p className="font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
+              <p className="hidden md:block font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
                 قصتنا
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cream-light tracking-tight mb-6">
@@ -173,7 +175,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <p className="font-arabic text-gold text-sm tracking-widest uppercase mb-3">
+              <p className="hidden md:block font-arabic text-gold text-sm tracking-widest uppercase mb-3">
                 حياة المسجد
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-emerald-deep tracking-tight">
@@ -183,7 +185,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           {/* Gold decorative rule */}
-          <div className="flex justify-center mb-10" aria-hidden="true">
+          <div className="hidden md:flex justify-center mb-10" aria-hidden="true">
             <div className="w-16 h-px bg-gold/40" />
           </div>
 
@@ -268,7 +270,9 @@ export default function AboutPage() {
           5. LEADERSHIP & COMMUNITY — emerald band, gold accents
           ════════════════════════════════════════════════════ */}
       <section className="py-16 sm:py-24 bg-emerald-deep relative overflow-hidden">
-        <GeometricPattern />
+        <div className="hidden md:block">
+          <GeometricPattern />
+        </div>
         <div
           className="absolute inset-0 bg-gradient-to-b from-emerald-deep/95 to-emerald-deep/90"
           aria-hidden="true"
@@ -276,14 +280,14 @@ export default function AboutPage() {
         <div className="relative z-10 mx-auto max-w-4xl px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <p className="font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
+              <p className="hidden md:block font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
                 القيادة والمجتمع
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cream-light tracking-tight mb-4">
                 Leadership &amp; Community
               </h2>
               {/* Gold decorative rule */}
-              <div className="flex justify-center mt-4 mb-6" aria-hidden="true">
+              <div className="hidden md:flex justify-center mt-4 mb-6" aria-hidden="true">
                 <div className="w-16 h-px bg-gold/40" />
               </div>
               <PlaceholderTextLight>
@@ -331,11 +335,11 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════
           6. CTA BAND — cream band for contrast rhythm
           ════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 bg-cream-light">
+      <section className="py-10 sm:py-20 bg-cream-light">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <ScrollReveal>
             {/* Gold decorative rule */}
-            <div className="flex justify-center mb-8" aria-hidden="true">
+            <div className="hidden md:flex justify-center mb-8" aria-hidden="true">
               <div className="w-16 h-px bg-gold/40" />
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-emerald-deep tracking-tight mb-4">

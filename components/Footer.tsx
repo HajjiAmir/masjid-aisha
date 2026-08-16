@@ -13,14 +13,14 @@ export default function Footer() {
   return (
     <footer className="bg-emerald-deep text-cream-light/90">
       {/* Bismillah header */}
-      <div className="border-b border-gold/10 py-4 text-center">
+      <div className="hidden md:block border-b border-gold/10 py-4 text-center">
         <p className="font-arabic text-gold/90 text-xl tracking-wider">
           بسم الله الرحمن الرحيم
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+        <div className="grid grid-cols-1 gap-6 md:gap-10 md:grid-cols-2 lg:grid-cols-3">
           {/* Column 1: Masjid info */}
           <div>
             <h3 className="font-serif text-xl font-bold text-cream-light mb-1">
@@ -57,15 +57,15 @@ export default function Footer() {
 
           {/* Column 2: Quick links */}
           <div>
-            <h3 className="font-serif text-lg font-semibold text-cream-light mb-4">
+            <h3 className="hidden md:block font-serif text-lg font-semibold text-cream-light mb-4">
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-1 md:grid-cols-1 md:gap-x-0 md:space-y-2">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="gold-hover relative text-sm text-cream-light/70 hover:text-gold transition-colors duration-200"
+                    className="gold-hover relative text-sm text-cream-light/70 hover:text-gold transition-colors duration-200 inline-block py-2 min-h-[44px]"
                   >
                     {link.label}
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Connect */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="font-serif text-lg font-semibold text-cream-light mb-4">
               Connect With Us
             </h3>

@@ -15,7 +15,7 @@ export default function EventsPage() {
       {/* Hero Header */}
       <section className="bg-emerald-deep pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center text-cream-light">
         <ScrollReveal>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-4">
             Events &amp; Programs
           </h1>
           <p className="text-lg opacity-90 max-w-2xl mx-auto">

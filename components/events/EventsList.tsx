@@ -58,7 +58,7 @@ const PROGRAM_ICONS: Record<string, () => React.JSX.Element> = {
 function DateTile({ dateISO }: { dateISO: string }) {
   const { month, day, weekday } = parseDateParts(dateISO);
   return (
-    <div className="flex flex-col items-center justify-center w-16 h-[4.5rem] rounded-xl bg-emerald-deep/5 border border-emerald-deep/10 shrink-0">
+    <div className="flex flex-col items-center justify-center w-14 h-16 md:w-16 md:h-[4.5rem] rounded-xl bg-emerald-deep/5 border border-emerald-deep/10 shrink-0">
       <span className="text-[10px] font-bold tracking-widest text-emerald-deep/60 uppercase leading-none">
         {month}
       </span>
@@ -135,7 +135,7 @@ function FeaturedEventCard({ event }: { event: MasjidEvent }) {
     days === 0 ? "Today" : days === 1 ? "Tomorrow" : `In ${days} days`;
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden min-h-[320px] sm:min-h-[360px] flex items-end">
+    <div className="relative w-full rounded-2xl overflow-hidden min-h-[240px] sm:min-h-[360px] flex items-end">
       {/* Background photo */}
       <Image
         src="/images/prayer-hall-current.jpg"
@@ -214,9 +214,9 @@ export default function EventsList() {
   if (!data) {
     return (
       <div className="space-y-20">
-        <div className="relative w-full rounded-2xl overflow-hidden min-h-[320px] sm:min-h-[360px] bg-emerald-deep animate-pulse" />
+        <div className="relative w-full rounded-2xl overflow-hidden min-h-[240px] sm:min-h-[360px] bg-emerald-deep animate-pulse" />
         <section className="relative">
-          <div className="absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
+          <div className="hidden md:block absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
             <GeometricPattern />
           </div>
           <div className="relative z-10">
@@ -229,7 +229,7 @@ export default function EventsList() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[1, 2, 3].map(i => (
                 <div key={i} className="event-card bg-cream-light rounded-xl p-5 border border-emerald-deep/5 flex gap-4 h-[120px]">
-                  <div className="w-16 h-[4.5rem] rounded-xl bg-emerald-deep/5 animate-pulse shrink-0" />
+                  <div className="w-14 h-16 md:w-16 md:h-[4.5rem] rounded-xl bg-emerald-deep/5 animate-pulse shrink-0" />
                   <div className="flex flex-col min-w-0 justify-center w-full">
                     <div className="h-3 w-16 bg-charcoal-muted/20 rounded animate-pulse mb-1.5" />
                     <div className="h-5 w-3/4 bg-emerald-deep/20 rounded animate-pulse mb-2" />
@@ -242,7 +242,7 @@ export default function EventsList() {
           </div>
         </section>
         <section className="relative">
-          <div className="absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
+          <div className="hidden md:block absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
             <GeometricPattern />
           </div>
           <div className="relative z-10">
@@ -255,7 +255,7 @@ export default function EventsList() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[1, 2, 3].map(i => (
                 <div key={i} className="event-card bg-cream-light rounded-xl p-5 border border-emerald-deep/5 flex gap-4 h-[120px]">
-                  <div className="w-16 h-[4.5rem] rounded-xl bg-emerald-deep/5 animate-pulse shrink-0" />
+                  <div className="w-14 h-16 md:w-16 md:h-[4.5rem] rounded-xl bg-emerald-deep/5 animate-pulse shrink-0" />
                   <div className="flex flex-col min-w-0 justify-center w-full">
                     <div className="h-3 w-16 bg-charcoal-muted/20 rounded animate-pulse mb-1.5" />
                     <div className="h-5 w-3/4 bg-emerald-deep/20 rounded animate-pulse mb-2" />
@@ -283,7 +283,7 @@ export default function EventsList() {
 
       {/* Upcoming Events Section */}
       <section className="relative">
-        <div className="absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
+        <div className="hidden md:block absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
           <GeometricPattern />
         </div>
 
@@ -322,7 +322,7 @@ export default function EventsList() {
 
       {/* Recurring Programs Section */}
       <section className="relative">
-        <div className="absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
+        <div className="hidden md:block absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
           <GeometricPattern />
         </div>
 

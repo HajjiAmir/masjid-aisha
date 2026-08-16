@@ -15,7 +15,7 @@ export default function GeometricPattern() {
     <div className="geometric-overlay" aria-hidden="true">
       {/* Layer 1: Primary pattern drifting */}
       <svg
-        className="absolute w-[200%] h-[200%] animate-geometric-drift opacity-[0.07]"
+        className="absolute w-[200%] h-[200%] md:animate-geometric-drift opacity-[0.07]"
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
         style={{ willChange: "transform" }}
@@ -54,7 +54,7 @@ export default function GeometricPattern() {
 
       {/* Layer 2: Offset pattern for depth, opposite drift */}
       <svg
-        className="absolute w-[200%] h-[200%] animate-geometric-drift-reverse opacity-[0.04]"
+        className="absolute w-[200%] h-[200%] md:animate-geometric-drift-reverse opacity-[0.04]"
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
         style={{ willChange: "transform", top: "-25%", left: "-25%" }}
@@ -83,7 +83,7 @@ export default function GeometricPattern() {
       </svg>
 
       {/* Layer 3: Subtle shimmer overlay */}
-      <div className="absolute inset-0 animate-shimmer bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
+      <div className="absolute inset-0 md:animate-shimmer bg-gradient-to-br from-gold/5 via-transparent to-gold/3" />
     </div>
   );
 }

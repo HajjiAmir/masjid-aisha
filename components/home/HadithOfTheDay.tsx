@@ -19,7 +19,7 @@ export default function HadithOfTheDay() {
   const isLong = hadith.text.length > CLAMP_THRESHOLD;
 
   return (
-    <section className="relative py-16 sm:py-24 bg-emerald-deep overflow-hidden">
+    <section className="relative py-10 sm:py-24 bg-emerald-deep overflow-hidden">
       {/* Subtle geometric background */}
       <div className="absolute inset-0 opacity-[0.03]" aria-hidden="true">
         <svg

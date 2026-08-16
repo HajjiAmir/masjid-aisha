@@ -25,17 +25,17 @@ export default function DonatePage() {
       {/* ════════════════════════════════════════════════════
           1. HERO HEADER
           ════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-32 bg-emerald-deep overflow-hidden">
+      <section className="relative py-16 sm:py-32 bg-emerald-deep overflow-hidden">
         <GeometricPattern />
         <div
           className="absolute inset-0 bg-gradient-to-b from-emerald-deep/90 via-emerald-deep/70 to-emerald-deep/95"
           aria-hidden="true"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="font-arabic text-gold/60 text-lg mb-4 tracking-widest">
+          <p className="hidden md:block font-arabic text-gold/60 text-lg mb-4 tracking-widest">
             بسم الله الرحمن الرحيم
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-cream-light tracking-tight leading-tight mb-4">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-cream-light tracking-tight leading-tight mb-4">
             Support Your Masjid
           </h1>
           <p className="text-cream-light/70 text-base sm:text-lg max-w-xl mx-auto">
@@ -51,7 +51,7 @@ export default function DonatePage() {
       {/* ════════════════════════════════════════════════════
           2. HADITH CENTERPIECE
           ════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 bg-cream-light">
+      <section className="py-10 sm:py-20 bg-cream-light">
         <div className="mx-auto max-w-3xl px-6">
           <ScrollReveal>
             <blockquote className="relative bg-white/80 border-l-4 border-gold rounded-r-2xl p-6 sm:p-8 shadow-sm">
@@ -81,8 +81,10 @@ export default function DonatePage() {
       {/* ════════════════════════════════════════════════════
           3. GIVING PANEL
           ════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 bg-emerald-deep relative overflow-hidden">
-        <GeometricPattern />
+      <section className="py-10 sm:py-20 bg-emerald-deep relative overflow-hidden">
+        <div className="hidden md:block">
+          <GeometricPattern />
+        </div>
         <div
           className="absolute inset-0 bg-gradient-to-b from-emerald-deep/95 to-emerald-deep/90"
           aria-hidden="true"
@@ -109,11 +111,11 @@ export default function DonatePage() {
       {/* ════════════════════════════════════════════════════
           4. "WHY GIVE" BAND
           ════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 bg-cream-light">
+      <section className="py-10 sm:py-20 bg-cream-light">
         <div className="mx-auto max-w-3xl px-6">
           <ScrollReveal>
             {/* Gold rule */}
-            <div className="flex justify-center mb-8" aria-hidden="true">
+            <div className="hidden md:flex justify-center mb-8" aria-hidden="true">
               <div className="w-16 h-px bg-gold/40" />
             </div>
             <div className="text-center">

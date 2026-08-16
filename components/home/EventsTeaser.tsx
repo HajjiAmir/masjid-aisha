@@ -17,14 +17,14 @@ export default function EventsTeaser() {
   }, []);
 
   return (
-    <section className="py-20 sm:py-28 bg-cream">
+    <section className="py-12 sm:py-28 bg-cream">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-arabic text-gold text-sm tracking-widest uppercase mb-3">
+          <div className="text-center mb-8 md:mb-12">
+            <p className="hidden md:block font-arabic text-gold text-sm tracking-widest uppercase mb-3">
               الأنشطة القادمة
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-emerald-deep tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-emerald-deep tracking-tight">
               Upcoming Events
             </h2>
           </div>
@@ -34,7 +34,7 @@ export default function EventsTeaser() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <div key={i} className="event-card group bg-cream-light rounded-xl p-5 border border-emerald-deep/5 flex gap-4 h-[120px]">
-                <div className="w-16 h-[4.5rem] rounded-xl bg-emerald-deep/5 animate-pulse shrink-0" />
+                <div className="w-14 h-16 md:w-16 md:h-[4.5rem] rounded-xl bg-emerald-deep/5 animate-pulse shrink-0" />
                 <div className="flex flex-col min-w-0 justify-center w-full">
                   <div className="h-3 w-16 bg-charcoal-muted/20 rounded animate-pulse mb-1.5" />
                   <div className="h-5 w-3/4 bg-emerald-deep/20 rounded animate-pulse mb-2" />
@@ -59,7 +59,7 @@ export default function EventsTeaser() {
                 <ScrollReveal key={event.id} delay={(index + 1) as 1 | 2 | 3}>
                   <div className="event-card group bg-cream-light rounded-xl p-5 border border-emerald-deep/5 flex gap-4 h-full">
                     {/* Date tile */}
-                    <div className="flex flex-col items-center justify-center w-16 h-[4.5rem] rounded-xl bg-emerald-deep/5 border border-emerald-deep/10 shrink-0">
+                    <div className="flex flex-col items-center justify-center w-14 h-16 md:w-16 md:h-[4.5rem] rounded-xl bg-emerald-deep/5 border border-emerald-deep/10 shrink-0">
                       <span className="text-[10px] font-bold tracking-widest text-emerald-deep/60 uppercase leading-none">
                         {month}
                       </span>

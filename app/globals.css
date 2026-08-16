@@ -220,3 +220,18 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Brief #11: Mobile motion reduction */
+@media (max-width: 767px) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-duration: 0.15s !important;
+  }
+  .scroll-reveal[data-delay="1"],
+  .scroll-reveal[data-delay="2"],
+  .scroll-reveal[data-delay="3"],
+  .scroll-reveal[data-delay="4"] {
+    transition-delay: 0s !important;
+  }
+}

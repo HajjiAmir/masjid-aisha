@@ -8,16 +8,16 @@ import ScrollReveal from "@/components/ScrollReveal";
  */
 export default function WelcomeSection() {
   return (
-    <section className="py-20 sm:py-28 bg-cream-light">
+    <section className="py-12 sm:py-28 bg-cream-light">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text column */}
           <ScrollReveal>
             <div>
-              <p className="font-arabic text-gold text-sm tracking-widest uppercase mb-3">
+              <p className="hidden md:block font-arabic text-gold text-sm tracking-widest uppercase mb-3">
                 أهلاً وسهلاً
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-emerald-deep tracking-tight mb-6">
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-emerald-deep tracking-tight mb-6">
                 Welcome to Our Community
               </h2>
               {/* [ABOUT_TEXT_TBD] — Replace with real about text when available */}

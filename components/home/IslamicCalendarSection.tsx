@@ -39,7 +39,7 @@ export default function IslamicCalendarSection() {
   }, []);
 
   return (
-    <section className="py-20 sm:py-28 bg-emerald-deep relative overflow-hidden">
+    <section className="py-12 sm:py-28 bg-emerald-deep relative overflow-hidden">
       {/* Subtle geometric background */}
       <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true">
         <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -58,11 +58,11 @@ export default function IslamicCalendarSection() {
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
+          <div className="text-center mb-8 md:mb-12">
+            <p className="hidden md:block font-arabic text-gold/60 text-sm tracking-widest uppercase mb-3">
               التقويم الهجري
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cream-light tracking-tight mb-2">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-cream-light tracking-tight mb-2">
               Islamic Calendar
             </h2>
             {!hijriToday ? (
@@ -81,7 +81,7 @@ export default function IslamicCalendarSection() {
             <div className="relative bg-emerald-deep/60 backdrop-blur-sm border border-gold/15 rounded-2xl p-8 sm:p-10 text-center shadow-xl overflow-hidden">
               {/* Decorative crescent */}
               <div className="absolute top-4 right-4 text-gold/10" aria-hidden="true">
-                <CrescentMoonIcon className="w-24 h-24 sm:w-32 sm:h-32" />
+                <CrescentMoonIcon className="w-20 h-20 sm:w-32 sm:h-32" />
               </div>
 
               <div className="relative z-10">
@@ -99,7 +99,7 @@ export default function IslamicCalendarSection() {
                       Ramadan Mubarak
                     </p>
                     <div className="flex items-baseline justify-center gap-3 mb-3">
-                      <span className="font-serif text-6xl sm:text-7xl font-bold text-cream-light tabular-nums">
+                      <span className="font-serif text-5xl sm:text-7xl font-bold text-cream-light tabular-nums">
                         {ramadanStatus.dayOfRamadan}
                       </span>
                     </div>
@@ -113,7 +113,7 @@ export default function IslamicCalendarSection() {
                       Days Until Ramadan
                     </p>
                     <div className="flex items-baseline justify-center gap-3 mb-3">
-                      <span className="font-serif text-6xl sm:text-7xl font-bold text-cream-light tabular-nums">
+                      <span className="font-serif text-5xl sm:text-7xl font-bold text-cream-light tabular-nums">
                         {ramadanStatus.daysUntilRamadan}
                       </span>
                     </div>
