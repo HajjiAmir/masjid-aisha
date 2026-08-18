@@ -56,13 +56,12 @@ export default function WelcomeSection() {
           <ScrollReveal delay={2}>
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-emerald-deep/15">
               <Image
-                src="/images/prayer-hall-current.jpg"
-                alt="Prayer hall at the Islamic Center of Lynchburg with deep green carpet and gold arch patterns"
+                src="/images/community-meal-setup.jpg"
+                alt="Community meal setup in the prayer hall at the Islamic Center of Lynchburg"
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority={false}
               />
               {/* Subtle gradient overlay at bottom for depth */}
               <div

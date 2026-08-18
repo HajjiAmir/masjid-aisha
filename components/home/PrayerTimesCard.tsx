@@ -61,28 +61,48 @@ export default function PrayerTimesCard() {
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-cream-light">
                   Today&apos;s Prayer Times
                 </h2>
-                {/* Skeleton: mobile layout */}
+                {/* Skeleton: mobile layout — matches hydrated mt-1, mt-0.5 */}
                 <div className="md:hidden">
-                  <div className="h-5 w-32 bg-gold/20 rounded animate-pulse mt-1.5" />
-                  <div className="h-4 w-24 bg-white/10 rounded animate-pulse mt-1" />
+                  <p className="text-gold-light text-sm font-medium mt-1 flex items-center gap-1.5">
+                    <span className="inline-block h-[1em] w-3.5 bg-gold/20 rounded animate-pulse" />
+                    <span className="inline-block h-[1em] w-32 bg-gold/20 rounded animate-pulse" />
+                  </p>
+                  <p className="text-cream-light/60 text-xs mt-0.5">
+                    <span className="inline-block h-[1em] w-24 bg-white/10 rounded animate-pulse align-middle" />
+                  </p>
                 </div>
-                {/* Skeleton: desktop layout (pre-revision order) */}
+                {/* Skeleton: desktop layout — matches hydrated mt-0.5, mt-0.5 */}
                 <div className="hidden md:block">
-                  <div className="h-5 w-32 bg-white/10 rounded animate-pulse mt-1.5" />
-                  <div className="h-4 w-24 bg-white/10 rounded animate-pulse mt-1" />
+                  <p className="text-cream-light/80 text-sm mt-0.5">
+                    <span className="inline-block h-[1em] w-32 bg-white/10 rounded animate-pulse align-middle" />
+                  </p>
+                  <p className="text-gold/70 text-xs mt-0.5">
+                    <span className="inline-block h-[1em] w-24 bg-white/10 rounded animate-pulse align-middle" />
+                  </p>
                 </div>
               </div>
-              <div className="h-10 w-48 bg-white/10 rounded-lg animate-pulse" />
+              {/* Skeleton badge — matches hydrated badge container */}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gold/10 border border-gold/20">
+                <div className="w-2 h-2 rounded-full bg-white/10 animate-pulse" />
+                <div className="text-sm">
+                  <span className="inline-block h-[1em] w-36 bg-white/10 rounded animate-pulse align-middle" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="divide-y divide-white/5">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="flex items-center justify-between px-6 py-3.5 hover:bg-white/5">
+              <div
+                key={i}
+                className={`flex items-center justify-between px-6 py-3.5 transition-colors duration-200 ${
+                  i === 1 ? "prayer-row-next" : "hover:bg-white/5"
+                }`}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="h-5 w-20 bg-white/10 rounded animate-pulse" />
-                  <div className="h-4 w-12 bg-white/10 rounded animate-pulse hidden sm:block" />
+                  <span className="inline-block h-5 w-20 bg-white/10 rounded animate-pulse" />
+                  <span className="hidden sm:inline-block h-4 w-12 bg-white/10 rounded animate-pulse" />
                 </div>
-                <div className="h-5 w-16 bg-white/10 rounded animate-pulse" />
+                <span className="inline-block h-5 w-16 bg-white/10 rounded animate-pulse" />
               </div>
             ))}
             <div className="flex items-center justify-between px-6 py-3.5 bg-gold/5">
@@ -92,7 +112,7 @@ export default function PrayerTimesCard() {
                 </span>
                 <span className="font-arabic text-gold/70 text-sm">الجمعة</span>
               </div>
-              <div className="h-5 w-16 bg-gold/20 rounded animate-pulse" />
+              <span className="inline-block h-5 w-16 bg-gold/20 rounded animate-pulse" />
             </div>
           </div>
           <div className="px-6 py-3 border-t border-gold/10">

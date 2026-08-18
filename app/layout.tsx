@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   description:
     "Welcome to the Islamic Center of Lynchburg Virginia (Masjid Aisha). Serving the Muslim community of Lynchburg with daily prayers, community events, and a welcoming environment for all.",
-  metadataBase: new URL("https://masjidayesha.org"),
+  metadataBase: new URL("https://masjidaisha.net"),
   alternates: {
     canonical: "/",
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Islamic Center of Lynchburg — Masjid Aisha",
     description:
       "Serving the Muslim community of Lynchburg, Virginia with daily prayers, community events, and a welcoming environment.",
-    url: "https://masjidayesha.org",
+    url: "https://masjidaisha.net",
     siteName: "Masjid Aisha",
     images: [
       {

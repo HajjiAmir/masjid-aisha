@@ -62,12 +62,13 @@ export default function AboutPage() {
         {/* Full-width photo with overlay */}
         <div className="relative h-[220px] sm:h-[320px] md:h-[480px]">
           <Image
-            src="/images/prayer-hall-current.jpg"
-            alt="Inside the prayer hall at the Islamic Center of Lynchburg"
+            src="/images/prayer-hall-decorated.jpg"
+            alt="Prayer hall at the Islamic Center of Lynchburg with festive decorations"
             fill
             className="object-cover"
             sizes="100vw"
-            priority
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-emerald-deep/60 via-emerald-deep/40 to-emerald-deep/90" />
           {/* Mission text overlaid */}
@@ -208,7 +209,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Photo 2 — older interior 1 */}
+              {/* Photo 2 — prayer hall interior */}
               <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-emerald-deep/10 group">
                 <Image
                   src="/images/prayer-hall-old-1.jpg"
@@ -225,11 +226,11 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Photo 3 — older interior 2 */}
+              {/* Photo 3 — masjid exterior */}
               <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-emerald-deep/10 group">
                 <Image
-                  src="/images/prayer-hall-old-2.jpg"
-                  alt="Inside the prayer hall"
+                  src="/images/masjid-exterior-front.jpg"
+                  alt="Masjid Aisha exterior"
                   width={600}
                   height={400}
                   className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -237,22 +238,29 @@ export default function AboutPage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-emerald-deep/80 to-transparent p-3">
                   <p className="text-cream-light/90 text-xs sm:text-sm font-medium">
-                    Inside the prayer hall
+                    Masjid Aisha exterior
                   </p>
                 </div>
               </div>
 
-              {/* Placeholder slot 1 */}
-              <div className="rounded-2xl border-2 border-dashed border-emerald-deep/15 h-48 sm:h-56 flex flex-col items-center justify-center p-4 text-center">
-                <svg className="w-8 h-8 text-emerald-deep/20 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-charcoal-muted/35 italic text-xs leading-snug">
-                  More photos coming from our community
-                </p>
+              {/* Photo 4 — community meal setup */}
+              <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-emerald-deep/10 group">
+                <Image
+                  src="/images/community-meal-setup.jpg"
+                  alt="Community meal setup"
+                  width={600}
+                  height={400}
+                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-emerald-deep/80 to-transparent p-3">
+                  <p className="text-cream-light/90 text-xs sm:text-sm font-medium">
+                    Community meal setup
+                  </p>
+                </div>
               </div>
 
-              {/* Placeholder slot 2 */}
+              {/* Placeholder slot — extensible */}
               <div className="rounded-2xl border-2 border-dashed border-emerald-deep/15 h-48 sm:h-56 flex flex-col items-center justify-center p-4 text-center">
                 <svg className="w-8 h-8 text-emerald-deep/20 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />

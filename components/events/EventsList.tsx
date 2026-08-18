@@ -211,10 +211,87 @@ export default function EventsList() {
     });
   }, []);
 
+  /* ── Featured Hero: always SSR the image so browser discovers it
+       immediately. Text overlay hydrates after useEffect. ── */
+  const featuredHero = (
+    <div className="relative w-full rounded-2xl overflow-hidden min-h-[240px] sm:min-h-[360px] flex items-end">
+      {/* Background photo — SSR for LCP discovery (Next.js 16) */}
+      <Image
+        src="/images/masjid-exterior-front.jpg"
+        alt="Masjid Aisha exterior"
+        fill
+        className="object-cover"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+        quality={75}
+        loading="eager"
+        fetchPriority="high"
+      />
+
+      {/* Dark emerald gradient overlay */}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-emerald-deep via-emerald-deep/80 to-emerald-deep/30"
+        aria-hidden="true"
+      />
+
+      {/* Content overlay — skeleton until data loads, then hydrated text */}
+      <div className="relative z-10 w-full p-6 sm:p-8 lg:p-10">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="max-w-xl">
+            <p className="text-gold/80 text-xs font-bold tracking-widest uppercase mb-2">
+              Next Event
+            </p>
+            {data?.featured ? (
+              <>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-cream-light tracking-tight mb-3 leading-tight">
+                  {data.featured.title}
+                </h2>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-cream-light/80 text-sm">
+                  <span>{formatDateISO(data.featured.dateISO)}</span>
+                  <span className="text-gold/60">•</span>
+                  <span>{data.featured.time}</span>
+                </div>
+                <p className="text-cream-light/60 text-sm mt-3 max-w-md leading-relaxed hidden sm:block">
+                  {data.featured.description}
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="h-8 sm:h-10 w-3/4 bg-white/10 rounded animate-pulse mb-3" />
+                <div className="flex items-center gap-4">
+                  <span className="inline-block h-4 w-28 bg-white/10 rounded animate-pulse" />
+                  <span className="inline-block h-4 w-16 bg-white/10 rounded animate-pulse" />
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Countdown chip */}
+          <div className="shrink-0">
+            {data?.featured ? (
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full text-gold text-sm font-semibold tracking-wide">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {(() => {
+                  const days = daysUntil(data.featured.dateISO);
+                  return days === 0 ? "Today" : days === 1 ? "Tomorrow" : `In ${days} days`;
+                })()}
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full">
+                <span className="inline-block h-4 w-20 bg-white/10 rounded animate-pulse" />
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   if (!data) {
     return (
       <div className="space-y-20">
-        <div className="relative w-full rounded-2xl overflow-hidden min-h-[240px] sm:min-h-[360px] bg-emerald-deep animate-pulse" />
+        {featuredHero}
         <section className="relative">
           <div className="hidden md:block absolute inset-0 -mx-4 sm:-mx-6 lg:-mx-8 opacity-30 pointer-events-none overflow-hidden rounded-3xl" aria-hidden="true">
             <GeometricPattern />
@@ -275,11 +352,7 @@ export default function EventsList() {
 
   return (
     <>
-      {featured && (
-        <ScrollReveal>
-          <FeaturedEventCard event={featured} />
-        </ScrollReveal>
-      )}
+      {featured ? featuredHero : null}
 
       {/* Upcoming Events Section */}
       <section className="relative">
