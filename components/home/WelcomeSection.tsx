@@ -52,12 +52,12 @@ export default function WelcomeSection() {
             </div>
           </ScrollReveal>
 
-          {/* Real interior photo */}
+          {/* Masjid exterior photo */}
           <ScrollReveal delay={2}>
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-emerald-deep/15">
               <Image
-                src="/images/community-meal-setup.jpg"
-                alt="Community meal setup in the prayer hall at the Islamic Center of Lynchburg"
+                src="/images/masjid-exterior-front.jpg"
+                alt="Front entrance of the Islamic Center of Lynchburg — Masjid Aisha"
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover"

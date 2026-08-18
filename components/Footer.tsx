@@ -81,9 +81,11 @@ export default function Footer() {
                 Connect With Us
               </h3>
               <div className="flex gap-3">
-                {/* Facebook link slot */}
+                {/* Facebook link */}
                 <a
-                  href="#"
+                  href="https://www.facebook.com/IslamicCenterOfLynchburgVirginia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-gold/20 text-cream-light hover:text-gold transition-all duration-200"
                   aria-label="Facebook"
                 >
@@ -151,7 +153,9 @@ export default function Footer() {
 
         <div className="mt-5 flex justify-center">
           <a
-            href="#"
+            href="https://www.facebook.com/IslamicCenterOfLynchburgVirginia/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-gold/20 text-cream-light hover:text-gold transition-all duration-200"
             aria-label="Facebook"
           >

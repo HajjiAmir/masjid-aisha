@@ -217,10 +217,10 @@ export default function EventsList() {
     <div className="relative w-full rounded-2xl overflow-hidden min-h-[240px] sm:min-h-[360px] flex items-end">
       {/* Background photo — SSR for LCP discovery (Next.js 16) */}
       <Image
-        src="/images/masjid-exterior-front.jpg"
-        alt="Masjid Aisha exterior"
+        src="/images/community-meal-gathering.jpg"
+        alt="Community iftar meal at Masjid Aisha"
         fill
-        className="object-cover"
+        className="object-cover object-top"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
         quality={75}
         loading="eager"
